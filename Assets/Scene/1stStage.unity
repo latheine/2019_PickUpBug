@@ -56,8 +56,8 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
-    m_BakeResolution: 40
-    m_AtlasSize: 512
+    m_BakeResolution: 20
+    m_AtlasSize: 256
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -73,8 +73,8 @@ LightmapSettings:
     m_MixedBakeMode: 2
     m_BakeBackend: 2
     m_PVRSampling: 1
-    m_PVRDirectSampleCount: 32
-    m_PVRSampleCount: 500
+    m_PVRDirectSampleCount: 5
+    m_PVRSampleCount: 100
     m_PVRBounces: 2
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
@@ -5575,7 +5575,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -10156,31 +10156,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5797510275312958182, guid: e797f73f7f4f55747b09af2a15dd32e5,
+    - target: {fileID: 5797510275312813271, guid: e797f73f7f4f55747b09af2a15dd32e5,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.674
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797510273249899393, guid: e797f73f7f4f55747b09af2a15dd32e5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: Auto_Timer
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5797510275302971628, guid: e797f73f7f4f55747b09af2a15dd32e5,
         type: 3}
       propertyPath: lightObject
       value: 
       objectReference: {fileID: 1900848962}
-    - target: {fileID: 5797510275312813271, guid: e797f73f7f4f55747b09af2a15dd32e5,
-        type: 3}
-      propertyPath: Auto_Timer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797510275312813270, guid: e797f73f7f4f55747b09af2a15dd32e5,
-        type: 3}
-      propertyPath: hasItem
-      value: 
-      objectReference: {fileID: 1469155919}
     - target: {fileID: 5797510275312962690, guid: e797f73f7f4f55747b09af2a15dd32e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10236,6 +10221,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5797510275312958182, guid: e797f73f7f4f55747b09af2a15dd32e5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.674
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797510273249899393, guid: e797f73f7f4f55747b09af2a15dd32e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797510275312813270, guid: e797f73f7f4f55747b09af2a15dd32e5,
+        type: 3}
+      propertyPath: hasItem
+      value: 
+      objectReference: {fileID: 1469155919}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e797f73f7f4f55747b09af2a15dd32e5, type: 3}
 --- !u!1 &1992767891
