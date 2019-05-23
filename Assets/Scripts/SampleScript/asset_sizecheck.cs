@@ -1,9 +1,8 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
-using System.Diagnostics;
 
 public class asset_sizecheck 
 {
@@ -11,7 +10,7 @@ public class asset_sizecheck
 
     private static readonly int mRemoveCount = REMOVE_STR.Length;
     private static readonly Color mColor = new Color(0.635f, 0.635f, 0.635f, 1);
-    [Conditional("UNITY_EDITOR")]
+
     [InitializeOnLoadMethod]
     private static void Example()
     {
@@ -78,4 +77,3 @@ public class asset_sizecheck
         );
     }
 }
-*/
