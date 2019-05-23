@@ -1,0 +1,48 @@
+
+improved_ExsitingScript := StandardAssetsやAssetStoreからダウンロードしたScriptに加筆したもの。Improveされたかどうかは謎。
+Unused := 使用予定だが現在未使用なもの,または作成途中で使えないもの。
+SampleScript := ネット上、または書籍のサンプルコードを丸々コピペ、或いは書き写ししたもの。
+
+
+------------------------------------------------------------------------------------------------------
+
+memo
+
+Unity(C#)のサンプルコードなどを見るとprivateを記述している人は多い。
+が、省略するべきという人もちらほらいる。
+
+ではprivateは記述するべき？書くべき？
+ex) [SerializeField] private hogehoge 
+
+-> 書いた方が良いのかもしれない。
+
+理由として
+
+アクセス修飾子が無記述の場合、
+PHP,Ruby･･･　多分public
+Scala･･･　public
+Java･･･　同クラスメンバはアクセス可能？
+JS,Python,GoLang･･･　アクセス修飾子が存在しない。
+
+C++、C#･･･private
+
+となっており、無記述だとpublicとなる言語も多いので
+一応明示しておいた方がよいのだろうか？
+
+調べてる時にふと思ったが、private protected(protected private)使ったことない。->サークルで聞く。
+(https://ufcpp.net/study/csharp/cheatsheet/ap_ver7_2/)
+
+memo2 
+オブジェクト指向におけるprivateメソッドの禁止
+株式会社アークシステム
+(https://www.arksystems.co.jp/closeupit/object_oriented/0402.html)
+
+
+追記：12/5
+memo3
+オブジェクト指向でProtectedはいらない？ Qiita
+(https://qiita.com/tatachiy/items/daf3e86a1fd9d9e9b004)
+
+追追記:5/18
+書き忘れていたがprivate protectedは誰も使ってなかった。
+そこまで複雑なものを書いたことが無いという結論だった気がする。
