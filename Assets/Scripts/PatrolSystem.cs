@@ -6,27 +6,27 @@ using UnityEngine.Rendering.PostProcessing;
 public class PatrolSystem : MonoBehaviour
 {
 
-    public int DamageToPlayer = 20;
+    public int damageToPlayer = 20;
     public float Speed = 1f;
     public float chaseSpeed = 3f;
     public float patrolSpeed = 1f;
     public float rotationSpeed = 1f;
     public float posRange = 10f;
     public float searchRange = 90f;
-    private Vector3 TargetPos;
+    private Vector3 targetPos;
     private float changeTarget = 50f;
     private bool IsAttack = false;
 
     private Animator animator;
-    [SerializeField] float AnimSpeed = default;
+    [SerializeField] float animSpeed = default;
     [SerializeField] AudioClip enemyIdle = null;
     [SerializeField] AudioClip enemyAttack = null;
     AudioSource audioSource;
-    [SerializeField] bool m_Play;
-    [SerializeField] bool m_Loop; 
+    bool m_Play;
+    bool m_Loop; 
 
-    public float DistanceToPlayer;
-    public float TargetDistance;
+    public float distanceToPlayer;
+    public float targetDistance;
 
     public GameObject player;
 
@@ -44,10 +44,10 @@ public class PatrolSystem : MonoBehaviour
 
       
         //目的地Posに障害物がある事を考えて手前で変更
-        if (TargetDistance < changeTarget)
+        if (targetDistance < changeTarget)
         {
 
-            TargetPos = GetRandomPosition(transform.position);
+            targetPos = GetRandomPosition(transform.position);
             audioSource.loop = false;
 
         }
@@ -60,7 +60,7 @@ public class PatrolSystem : MonoBehaviour
 
         //向きを取得
         //https://docs.unity3d.com/ScriptReference/Quaternion.html
-        Quaternion targetRotation = Quaternion.LookRotation(TargetPos - transform.position);
+        Quaternion targetRotation = Quaternion.LookRotation(targetPos - transform.position);
         
         //移動
         transform.Translate(Vector3.forward * Speed * patrolSpeed * Time.deltaTime);
@@ -99,7 +99,7 @@ public class PatrolSystem : MonoBehaviour
         //コルーチン稼働フラグ
         IsAttack = true;
 
-        PlayerSystem.PlayerHealth -= DamageToPlayer;
+        PlayerSystem.PlayerHealth -= damageToPlayer;
         Debug.Log("Attack!");
 
         //AnimSpeed = 0f;
@@ -119,11 +119,11 @@ public class PatrolSystem : MonoBehaviour
     {       
 
         //巡回用pos
-        TargetPos = GetRandomPosition(transform.position);
+        targetPos = GetRandomPosition(transform.position);
 
         //animator、audiosource取得
         animator = this.gameObject.GetComponent<Animator>();
-        AnimSpeed = 0f;
+        animSpeed = 0f;
         audioSource = this.gameObject.GetComponent<AudioSource>();
 
         //自動でプレイヤーセット(必要なければ消す)
@@ -136,31 +136,31 @@ public class PatrolSystem : MonoBehaviour
     void Update()
     {
 
-        /*SqrMagnitudeでベクトル2乗の長さを返す。magnitudeより計算が高速らしい。
+        /*SqrMagnitudeでベクトル2乗の長さを返す。Distanceよりこっちの方が計算が高速らしい。
           https://docs.unity3d.com/ja/2018.3/ScriptReference/Vector3.html (ScriptReference(Vector3))
           http://cocokyoro.hateblo.jp/entry/2016/06/15/033835 (ただの適当な開発記)
           ところでマグニチュードとは
           [主な意味]
-          大小、重大、(恒星の)光度、(光度による)等級... この場合は大きさか？*/
-        TargetDistance = Vector3.SqrMagnitude(transform.position - TargetPos);
+          大小、重大、(恒星の)光度、(光度による)等級... */
+        targetDistance = Vector3.SqrMagnitude(transform.position - targetPos);
 
-        DistanceToPlayer = Vector3.SqrMagnitude(transform.position - player.transform.position);
+        distanceToPlayer = Vector3.SqrMagnitude(transform.position - player.transform.position);
 
         //モードの指定　遠ければ巡回　近ければチェイス、接近で攻撃
-        if (DistanceToPlayer > searchRange)
+        if (distanceToPlayer > searchRange)
         {
 
             patrol();
-            AnimSpeed = Speed * 3f;
-            animator.SetFloat("Speed", AnimSpeed);
+            animSpeed = Speed * 3f;
+            animator.SetFloat("Speed", animSpeed);
 
         }
-        else if (3f < DistanceToPlayer && DistanceToPlayer < searchRange)
+        else if (3f < distanceToPlayer && distanceToPlayer < searchRange)
         {
 
             chase();
-            AnimSpeed = Speed * 10f;
-            animator.SetFloat("Speed", AnimSpeed);
+            animSpeed = Speed * 10f;
+            animator.SetFloat("Speed", animSpeed);
 
         }
         else

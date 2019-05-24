@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player_Text : MonoBehaviour
 {
 
-    [SerializeField] GameObject TTB = default;
+    [SerializeField] GameObject TTB = default; //TargetTextBox
     [SerializeField] GameObject Auto_Player = default;
     public string messege;
     Text text;
