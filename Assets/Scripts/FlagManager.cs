@@ -55,13 +55,11 @@ public class FlagManager: MonoBehaviour
         for (int i = 0; i <= infoFlagCount.Length;)
         {
 
-            Debug.Log(i + " for");
             if (CountAndClear.Count >= infoFlagCount[i]) //[0]～[i]全部が毎フレーム呼び出されているので改善したい。
             {                                           
 
                 infoMsg.text = messege[i];
                 i++;
-                Debug.Log(i + " if");
 
             }
             else

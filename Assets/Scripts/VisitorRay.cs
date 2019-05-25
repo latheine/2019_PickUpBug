@@ -16,26 +16,17 @@ public class VisitorRay : Visitor
     // https://www.techscore.com/tech/DesignPattern/Visitor.html/ Visitorパターンサンプル(Java) TECHSCORE
     public override void Visit(ItemAcceptor acceptor)
     {
-
         acceptor.Accept(this);
-        Debug.Log("loading ItemAcceptor");
-
     }
 
     public override void Visit(LogsAcceptor acceptor)
     {
-
-        acceptor.Accept(this); 
-        Debug.Log("loading LogsAcceptor");
-       
+        acceptor.Accept(this);       
     }
 
     public override void Visit(DoorAcceptor acceptor)
     {
-
         acceptor.Accept(this);
-        Debug.Log("loading DoorAcceptor");
-
     }
 
     void Start()
@@ -48,6 +39,7 @@ public class VisitorRay : Visitor
 
     void Update()
     {
+
         ray = camera.ScreenPointToRay(Input.mousePosition);
         if (Input.GetButton("Search"))
         {
@@ -89,7 +81,6 @@ public class VisitorRay : Visitor
 
                 if(Tobject.gameObject.tag == "Cube")
                 {
-
                     
                     rigidbody = Tobject.GetComponent<Rigidbody>();
                     rigidbody.isKinematic = true;
@@ -121,13 +112,11 @@ public class VisitorRay : Visitor
 
                 if (Input.GetButton("Fire2"))
                 {
-
                     
                     rigidbody.isKinematic = true;
 
                     /*hasItemと同じ座標にする。
-                     カメラRayと同じ位置にする方法の方がよいのだろうか
-                    */
+                     カメラRayと同じ位置にする方法の方がよいのだろうか */
 
                     toTransform.SetParent(hasItem.transform);
 
