@@ -11,6 +11,7 @@ public class VisitorRay : Visitor
     public GameObject hasItem;
     [SerializeField] float RayDistance;
     RaycastHit hit;
+    GameObject gameObject;
 
     // Visitor->Acceptor
     // https://www.techscore.com/tech/DesignPattern/Visitor.html/ Visitorパターンサンプル(Java) TECHSCORE
@@ -103,12 +104,14 @@ public class VisitorRay : Visitor
 
             //Debug.Log("hit");
 
-            if (Tobject.gameObject.tag == "Cube")
+            if (Tobject.gameObject.tag == "Movable")
             {
                 
                 toTransform = Tobject.GetComponent<Transform>();
                 rigidbody = Tobject.GetComponent<Rigidbody>();
+                gameObject = Tobject;
                 //Debug.Log("&Cube");
+                StartCoroutine("HighLightObj");          
 
                 if (Input.GetButton("Fire2"))
                 {
@@ -127,7 +130,7 @@ public class VisitorRay : Visitor
                 {
 
                     toTransform.SetParent(null);
-                    rigidbody.isKinematic = false;
+                    rigidbody.isKinematic = false;             
 
                 }
 
@@ -137,5 +140,15 @@ public class VisitorRay : Visitor
 
     }
 
+    IEnumerator HighLightObj()
+    {
+        Renderer renderer = gameObject.GetComponent<Renderer>();
+        renderer.material.SetFloat("_RimLight", 5);
+        yield return new WaitForSeconds(5f);
+        renderer.material.SetFloat("_RimLight", 0);
+        StopCoroutine("HighLightObj");
+        
+    }
 }
+
     

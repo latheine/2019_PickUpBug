@@ -78,7 +78,7 @@ namespace Footsteps {
 
             HandleUserInput();
 
-            if (Input.GetButton("Light"))
+            if (Input.GetButtonDown("Light"))
             {
                 lightObject.SetActive(!lightObject.activeSelf);
                 lightBool = !lightBool;

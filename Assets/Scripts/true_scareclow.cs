@@ -12,7 +12,6 @@ public class true_scareclow : MonoBehaviour
     public float posRange = 10f;
     private Vector3 targetPos;
     private float changeTarget = 50f;
-    private bool IsAttack = false;
 
     private Animator animator;
     [SerializeField] float animSpeed = default;

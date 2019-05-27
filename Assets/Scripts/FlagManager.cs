@@ -12,8 +12,6 @@ public class FlagManager: MonoBehaviour
     GameObject infoTB = default; //TB=TextBox
     [SerializeField]
     GameObject playerTB = default;
-    [SerializeField]
-    GameObject Player = default;
 
     [Header("SChangeMsg,KegItemNum")]
     public string sceneChangeMessege_NotYet;

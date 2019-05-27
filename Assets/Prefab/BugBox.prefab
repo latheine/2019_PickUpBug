@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 2428754669986309916}
   - component: {fileID: 2428754669986309917}
   - component: {fileID: 2428754669986309890}
-  - component: {fileID: 2428754669986309891}
   - component: {fileID: 2428754669986309919}
+  - component: {fileID: 2428754669986309891}
   - component: {fileID: 2428754669986309918}
   - component: {fileID: 7770171028511277903}
   m_Layer: 0
-  m_Name: TestItem
+  m_Name: BugBox
   m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2428754669986309888}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.456726, y: -21.765625, z: 22.515}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -81,19 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2428754669986309891
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2428754669986309888}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2428754669986309919
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,6 +97,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &2428754669986309891
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428754669986309888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2428754669986309918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   isPotion: 0
   isTimer: 0
   messege: 
+  DEBUG: 0
   timer: {fileID: 0}
 --- !u!82 &7770171028511277903
 AudioSource:
@@ -186,7 +187,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

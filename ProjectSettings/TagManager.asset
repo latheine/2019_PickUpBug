@@ -12,6 +12,7 @@ TagManager:
   - Terrain
   - Cube
   - Prop
+  - Movable
   layers:
   - Default
   - TransparentFX

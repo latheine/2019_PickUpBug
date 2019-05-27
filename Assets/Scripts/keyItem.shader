@@ -3,7 +3,7 @@
 
 	Properties
 	{
-		_alphaFloat ("alphaFloat", Float) = 1.5
+		_alphaFloat ("alphaFloat", Range(0.1,10)) = 0.1
 	}
 	SubShader 
 	{		

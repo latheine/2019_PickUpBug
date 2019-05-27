@@ -14,7 +14,6 @@ public class CountAndClear : MonoBehaviour
     [SerializeField] GameObject gameClearText = null;
 
     public static int Count;
-    [SerializeField] int flagCount = default;
 
     [SerializeField] string urMassage = null;
     GameObject timerObject;
@@ -24,7 +23,6 @@ public class CountAndClear : MonoBehaviour
 
     AudioSource audioSource;
     [SerializeField] AudioClip audioClip = default;
-    bool m_Play;
 
     void Start()
     {
@@ -34,7 +32,6 @@ public class CountAndClear : MonoBehaviour
         gameClearText.SetActive (false);
 
         audioSource = GetComponent<AudioSource>();
-        m_Play = true;
 
         Count = 0;
 

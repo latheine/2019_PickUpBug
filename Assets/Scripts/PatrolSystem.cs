@@ -14,7 +14,7 @@ public class PatrolSystem : MonoBehaviour
     public float posRange = 10f;
     public float searchRange = 90f;
     private Vector3 targetPos;
-    private float changeTarget = 50f;
+    private float changeTarget = 40f;
     private bool IsAttack = false;
 
     private Animator animator;
@@ -22,8 +22,8 @@ public class PatrolSystem : MonoBehaviour
     [SerializeField] AudioClip enemyIdle = null;
     [SerializeField] AudioClip enemyAttack = null;
     AudioSource audioSource;
-    bool m_Play;
-    bool m_Loop; 
+    public bool m_Play;
+    public bool m_Loop; 
 
     public float distanceToPlayer;
     public float targetDistance;
@@ -36,13 +36,13 @@ public class PatrolSystem : MonoBehaviour
        
         return new Vector3(Random. Range(-posRange + currentpos.x, posRange + currentpos.x),
             0,Random.Range(-posRange + currentpos.z, posRange + currentpos.z));
-
+        m_Play = true;
+        
     }
 
     void patrol()
     {
-
-      
+ 
         //目的地Posに障害物がある事を考えて手前で変更
         if (targetDistance < changeTarget)
         {
@@ -52,11 +52,13 @@ public class PatrolSystem : MonoBehaviour
 
         }
 
-        audioSource.clip = enemyIdle;
-        audioSource.Play();
-        audioSource.loop = true;
-
-        //Debug.Log("patrol loaded");
+        if(!audioSource.isPlaying)
+        { 
+            audioSource.clip = enemyIdle;
+            audioSource.Play();
+            audioSource.loop = true;
+            //Debug.Log("m_Play");
+        }
 
         //向きを取得
         //https://docs.unity3d.com/ScriptReference/Quaternion.html
@@ -100,7 +102,7 @@ public class PatrolSystem : MonoBehaviour
         IsAttack = true;
 
         PlayerSystem.PlayerHealth -= damageToPlayer;
-        Debug.Log("Attack!");
+        //Debug.Log("Attack!");
 
         //AnimSpeed = 0f;
         animator.SetTrigger("Attack");

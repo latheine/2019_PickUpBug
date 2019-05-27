@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TimerAndGameOver : MonoBehaviour
 {
-
+    
     public float time = 60f; //ｔを大文字にすると既存のTimeと被る
     public GameObject GameOverCamera;
     public GameObject gameover;
@@ -14,7 +14,7 @@ public class TimerAndGameOver : MonoBehaviour
 
     [SerializeField] GameObject titleButton = default;
     GameObject PlayerObject = default;
-    [SerializeField] GameObject EnemyObject = default;
+
 
     private float PH;
     private bool IsPlaying;
@@ -22,6 +22,7 @@ public class TimerAndGameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         IsPlaying = true;
         audioSource = GetComponent<AudioSource>();
 
@@ -64,8 +65,11 @@ public class TimerAndGameOver : MonoBehaviour
     {
 
         //タイムアップで呼び出しorHP0で
-        StartCoroutine("GameOver");
-        IsPlaying = false;
+        if(IsPlaying)
+        { 
+            StartCoroutine("GameOver");
+            IsPlaying = false;
+        }
 
     }
 

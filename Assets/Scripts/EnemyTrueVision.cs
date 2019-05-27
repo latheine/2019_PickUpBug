@@ -6,13 +6,14 @@ public class EnemyTrueVision : MonoBehaviour
 {
 
     public GameObject enemyObject;
-    float test;
+    float test = 0.1f;
     Renderer[] renderer;
+    bool isActive;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        isActive = false;
         renderer = enemyObject.GetComponentsInChildren<Renderer>();
         foreach (Renderer rend in renderer)
         {
@@ -25,30 +26,44 @@ public class EnemyTrueVision : MonoBehaviour
     void OnTriggerStay(Collider player)
     {
 
-        foreach (Renderer rend in renderer)
+        if (player.tag == "Player")
         {
-            rend.material.SetFloat("_alphaFloat", test);
-        }
-        if (player.tag =="Player" && test <=10f)
-        {
-            test += Time.deltaTime * 0.5f;
+
+            foreach (Renderer rend in renderer)
+            {
+                rend.material.SetFloat("_alphaFloat", test);
+            }
+
+            if (test <= 10f)
+            {
+                test += Time.deltaTime * 0.5f;
+            }
+
         }
  
     }
 
-    void OnTriggerExit(Collider collider)
+    void OnTriggerExit(Collider player)
     {
-        Invoke("AlphaReset", 60);
+        if (player.tag == "Player" && !isActive)
+        {
+            StartCoroutine("AlphaReset");
+            isActive = true;
+        }
     }
 
-    void AlphaReset()
+    IEnumerator AlphaReset()
     {
-
+        //Debug.Log("Called");
+        yield return new WaitForSeconds(60f);
         foreach (Renderer rend in renderer)
         {
-            rend.material.SetFloat("_alphaFloat",0.1f);
+            rend.material.SetFloat("_alphaFloat", 0.1f);
         }
-
+        test = 0.1f;
+        StopCoroutine("AlphaReset");
+        //Debug.Log("StopCoroutine");
+        isActive = false;
     }
 
 }

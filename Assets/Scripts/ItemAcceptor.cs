@@ -21,6 +21,7 @@ public class ItemAcceptor : Acceptor
     [Tooltip("キーアイテム取得時のメッセージ")]
     [SerializeField] string messege = default;
 
+    //Debug用　取得時にクリア画面表示
     [SerializeField] bool DEBUG = false;
 
     public TimerAndGameOver timer;
@@ -31,7 +32,7 @@ public class ItemAcceptor : Acceptor
         ThisItem = this.gameObject;
         /*ランダムに生成された各オブジェクトにスクリプトがついているので
         　ItemAcceptorとして1つのスクリプトにまとめるのではなく
-        　キーアイテム用Acceptor、タイマー用Acceptor...etcと分けたほうが良い気がしてきた。      
+        　キーアイテム用Acceptor、タイマー用Acceptor...etcと分けたほうが良い気もしてきた。      
         　https://en.wikipedia.org/wiki/Visitor_pattern#C#_example　(Wikipedia [Visitor Pattern C#])
         */
         audioSource = ThisItem.GetComponent<AudioSource>();
@@ -45,35 +46,28 @@ public class ItemAcceptor : Acceptor
          * 音量に関してはScript側で指定が無ければ１。
          * https://docs.unity3d.com/ScriptReference/AudioSource.PlayClipAtPoint.html
         */
-        AudioSource.PlayClipAtPoint(audioClip, transform.position,0.7f);
-        Debug.Log(gameObject.name);
+        AudioSource.PlayClipAtPoint(audioClip, transform.position,0.6f);     
         Text SetWord = targetTB.GetComponent<Text>();
         //SetWord.text = "I got a " + gameObject.name;       
+        //Debug.Log(gameObject.name);
 
         //もしこれがキーアイテムならカウント++
         if (isKey)
         {
-
             FlagManager.playerProgressNum++;
             SetWord.text = messege;
-
         }
         else if (isPotion)
         {
-
             PlayerSystem.PlayerHealth += 50;
-
         }
         else if (isTimer)
         {
-
-            timer.time += 50f;
-
-        }else
+            timer.time += 100f;
+        }
+        else
         {
-
             CountAndClear.Count++;
-
         }
 
         if (DEBUG) CountAndClear.clearFlag = true;

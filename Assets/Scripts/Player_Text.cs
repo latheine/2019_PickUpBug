@@ -7,15 +7,15 @@ public class Player_Text : MonoBehaviour
 {
 
     [SerializeField] GameObject TTB = default; //TargetTextBox
-    [SerializeField] GameObject Auto_Player = default;
+    GameObject Auto_Player = default;
     public string messege;
     Text text;
-    bool IsChecked = false;
+    [SerializeField] bool once = false;
+    bool isChecked = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
        
         Auto_Player = GameObject.FindWithTag("Player");
 
@@ -24,13 +24,13 @@ public class Player_Text : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
 
-        if (IsChecked == false && collider.CompareTag("Player"))
+        if (isChecked == false && collider.CompareTag("Player"))
         {
 
             text = TTB.GetComponent<Text>();
             text.text = messege;
-            IsChecked = true;
-
+            if(once) isChecked = true;
+            
         }
       
     }
