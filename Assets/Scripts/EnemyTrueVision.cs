@@ -6,19 +6,25 @@ public class EnemyTrueVision : MonoBehaviour
 {
 
     public GameObject enemyObject;
-    public float test = 0;
+    float test;
     Renderer[] renderer;
+
     // Start is called before the first frame update
     void Start()
     {
 
         renderer = enemyObject.GetComponentsInChildren<Renderer>();
-             
+        foreach (Renderer rend in renderer)
+        {
+            rend.material.SetFloat("_alphaFloat", 0.1f);
+        }
 
     }
+
     //エリア内にプレイヤーがいる時敵のアルファ値を上げる
     void OnTriggerStay(Collider player)
     {
+
         foreach (Renderer rend in renderer)
         {
             rend.material.SetFloat("_alphaFloat", test);
@@ -29,5 +35,20 @@ public class EnemyTrueVision : MonoBehaviour
         }
  
     }
-    
+
+    void OnTriggerExit(Collider collider)
+    {
+        Invoke("AlphaReset", 60);
+    }
+
+    void AlphaReset()
+    {
+
+        foreach (Renderer rend in renderer)
+        {
+            rend.material.SetFloat("_alphaFloat",0.1f);
+        }
+
+    }
+
 }

@@ -66,7 +66,7 @@ public class true_scareclow : MonoBehaviour
     //範囲内で持続ダメージ、Terrainの端に来たらチェンジPos
     void OnTriggerStay(Collider collider)
     {
-        if (collider.tag == ("Player")) PlayerSystem.PlayerHealth -= 2f * Time.deltaTime;
+        if (collider.tag == ("Player")) PlayerSystem.PlayerHealth -= 2.5f * Time.deltaTime;
         else if (collider.tag == ("Terrain")) targetPos = GetRandomPosition(transform.position);
     }
 
