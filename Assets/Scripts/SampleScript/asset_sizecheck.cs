@@ -6,7 +6,7 @@ using System.IO;
 
 public class asset_sizecheck 
 {
-    private const string REMOVE_STR = "Assets";
+    /*private const string REMOVE_STR = "Assets";
 
     private static readonly int mRemoveCount = REMOVE_STR.Length;
     private static readonly Color mColor = new Color(0.635f, 0.635f, 0.635f, 1);
@@ -75,5 +75,5 @@ public class asset_sizecheck
             size.ToString(specifier),
             index < suffix.Length ? suffix[index] : "-"
         );
-    }
+    }*/
 }
