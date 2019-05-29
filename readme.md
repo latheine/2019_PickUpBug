@@ -1,7 +1,7 @@
 # PickUpBug #  
 
 動作保証環境  
-OSWindows7(64bit)以上  
+OS: Windows7(64bit)以上  
 CPU: Intel core i3 以上  
 GPU: DirectX10以上対応のグラフィックスカード  
 メモリ: 4gb以上  
