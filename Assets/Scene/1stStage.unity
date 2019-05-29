@@ -4038,7 +4038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 713, y: -362}
+  m_AnchoredPosition: {x: 713, y: -274}
   m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &884611708
@@ -9891,6 +9891,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 3159326920185487077}
+    - target: {fileID: 8056163079951328171, guid: ac9e30b9c50621f438d658ae2e3eff1c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1333663944217022616, guid: ac9e30b9c50621f438d658ae2e3eff1c,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -9916,26 +9921,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1333663944661663600, guid: ac9e30b9c50621f438d658ae2e3eff1c,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6766457438191303068}
-    - target: {fileID: 1333663944661663600, guid: ac9e30b9c50621f438d658ae2e3eff1c,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetSE
-      objectReference: {fileID: 0}
-    - target: {fileID: 1333663944671033181, guid: ac9e30b9c50621f438d658ae2e3eff1c,
-        type: 3}
-      propertyPath: LoadingUi
-      value: 
-      objectReference: {fileID: 2498033325969707648}
-    - target: {fileID: 1333663944671033181, guid: ac9e30b9c50621f438d658ae2e3eff1c,
-        type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 2498033325325364885}
     - target: {fileID: 1333663944898343208, guid: ac9e30b9c50621f438d658ae2e3eff1c,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -9985,16 +9970,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1333663945200312152, guid: ac9e30b9c50621f438d658ae2e3eff1c,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6766457438191303068}
-    - target: {fileID: 1333663945200312152, guid: ac9e30b9c50621f438d658ae2e3eff1c,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetVoice
       objectReference: {fileID: 0}
     - target: {fileID: 1333663945189822672, guid: ac9e30b9c50621f438d658ae2e3eff1c,
         type: 3}
@@ -10046,6 +10021,41 @@ PrefabInstance:
       propertyPath: Reticle
       value: 
       objectReference: {fileID: 328576404}
+    - target: {fileID: 1333663944671033169, guid: ac9e30b9c50621f438d658ae2e3eff1c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -372
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333663944661663600, guid: ac9e30b9c50621f438d658ae2e3eff1c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6766457438191303068}
+    - target: {fileID: 1333663944661663600, guid: ac9e30b9c50621f438d658ae2e3eff1c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSE
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333663944671033181, guid: ac9e30b9c50621f438d658ae2e3eff1c,
+        type: 3}
+      propertyPath: LoadingUi
+      value: 
+      objectReference: {fileID: 2498033325969707648}
+    - target: {fileID: 1333663944671033181, guid: ac9e30b9c50621f438d658ae2e3eff1c,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 2498033325325364885}
+    - target: {fileID: 1333663945200312152, guid: ac9e30b9c50621f438d658ae2e3eff1c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6766457438191303068}
+    - target: {fileID: 1333663945200312152, guid: ac9e30b9c50621f438d658ae2e3eff1c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVoice
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac9e30b9c50621f438d658ae2e3eff1c, type: 3}
 --- !u!1001 &1866707802

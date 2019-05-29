@@ -20206,6 +20206,11 @@ PrefabInstance:
       propertyPath: Reticle
       value: 
       objectReference: {fileID: 1393806354238156497}
+    - target: {fileID: 1333663944671033169, guid: ac9e30b9c50621f438d658ae2e3eff1c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -388
+      objectReference: {fileID: 0}
     - target: {fileID: 1333663944661663600, guid: ac9e30b9c50621f438d658ae2e3eff1c,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
